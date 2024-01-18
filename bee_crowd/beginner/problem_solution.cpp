@@ -7,3 +7,18 @@ int main(){
     cout<<"Hello World!"<<endl;
     return 0;
 }
+
+// Problem 02 - Read 2 variables, named A and B and make the sum of these two variables, assigning its result to the variable X. Print X as shown below. Print endline after the result otherwise you will get “Presentation Error”.
+// The input file will contain 2 integer numbers
+
+#include<iostrean>
+
+using namespace std;
+
+int main(){
+    int A,B,X;
+    cin>>A>>B;
+    X=A+B;
+    cout<<"X= "<<X<<endl;
+    return 0;
+}
