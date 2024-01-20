@@ -146,3 +146,58 @@ int main(){
     cout<<"DIFERENCA = "<<DIFERENCA<<endl;
     return 0;
 }
+
+// Problem 09 - Write a program that reads an employee's number, his/her worked hours number in a month and the amount he received per hour. Print the employee's number and salary that he/she will receive at end of the month, with two decimal places.
+// Don’t forget to print the line's end after the result, otherwise you will receive “Presentation Error”.
+// Don’t forget the space before and after the equal signal and after the U$.
+// The input file contains 2 integer numbers and 1 value of floating point, representing the number, worked hours amount and the amount the employee receives per worked hour.
+
+#include<iostream>
+#include<iomanip>
+
+using namespace std;
+
+int main(){
+    int number, hrsSalary;
+    float workingHrs, salary;
+
+    cin>>number;
+    cin>>hrsSalary;
+    cin>>setprecision(2)>>workingHrs;
+
+    salary = hrsSalary * workingHrs;
+
+    cout<<"NUMBER = "<<number<<endl;
+    cout<<fixed<<setprecision(2);
+    cout<<"SALARY = U$ "<<salary<<endl;
+
+    return 0;
+}
+
+
+// Problem 10 - Make a program that reads a seller's name, his/her fixed salary and the sale's total made by himself/herself in the month (in money). Considering that this seller receives 15% over all products sold, write the final salary (total) of this seller at the end of the month , with two decimal places.
+// - Don’t forget to print the line's end after the result, otherwise you will receive “Presentation Error”.
+// - Don’t forget the blank spaces.
+// The input file contains a text (employee's first name), and two double precision values, that are the seller's salary and the total value sold by him/her.
+
+#include<iostream>
+#include<iomanip>
+#include<string>
+
+using namespace std;
+
+int main(){
+    string firstName;
+    double salary, sell, totalSalary;
+
+    cin>>firstName;
+    cin>>salary;
+    cin>>sell;
+
+    totalSalary = salary + (sell * 0.15);
+
+    cout<<fixed<<setprecision(2);
+    cout<<"TOTAL = R$ "<<totalSalary<<endl;
+
+    return 0;
+}
