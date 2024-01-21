@@ -347,3 +347,86 @@ int main(){
 
     return 0;
 }
+
+// Problem 16 - Two cars (X and Y) leave in the same direction. The car X leaves with a constant speed of 60 km/h and the car Y leaves with a constant speed of 90 km / h.
+// In one hour (60 minutes) the car Y can get a distance of 30 kilometers from the X car, in other words, it can get away one kilometer for each 2 minutes.
+// Read the distance (in km) and calculate how long it takes (in minutes) for the car Y to take this distance in relation to the other car.
+// The input file contains 1 integer value.
+
+#include<iostream>
+
+using namespace std;
+
+int main(){
+    int a, minutes;
+
+    cin>>a;
+    minutes = a*2;
+
+    cout<<minutes<<" minutos"<<endl;
+
+    return 0;
+}
+
+// Problem 17 - Little John wants to calculate and show the amount of spent fuel liters on a trip, using a car that does 12 Km/L. For this, he would like you to help him through a simple program. To perform the calculation, you have to read spent time (in hours) and the same average speed (km/h). In this way, you can get distance and then, calculate how many liters would be needed. Show the value with three decimal places after the point.
+// The input file contains two integers. The first one is the spent time in the trip (in hours). The second one is the average speed during the trip (in Km/h).
+
+#include<iostream>
+#include<iomanip>
+
+using namespace std;
+
+int main(){
+    int time, speed, distance;
+    double liters, fuel=12.0;
+
+    cin>>time;
+    cin>>speed;
+    distance = time*speed;
+    liters=distance/fuel;
+
+    cout<<fixed<<setprecision(3);
+    cout<<liters<<endl;
+
+    return 0;
+}
+
+// Problem 18 - In this problem you have to read an integer value and calculate the smallest possible number of banknotes in which the value may be decomposed. The possible banknotes are 100, 50, 20, 10, 5, 2 and 1. Print the read value and the list of banknotes.
+// The input file contains an integer value N (0 < N < 1000000).
+
+#include<iostream>
+#include<iomanip>
+
+using namespace std;
+
+int main(){
+    int n, hundred, fifty, twenty, ten, five, two, one, hundredn, fiftyn, twentyn, tenn, fiven, twon, onen;
+
+    cin>>n;
+    hundred = n/100;
+    hundredn = n-(hundred*100);
+    fifty = hundredn/50;
+    fiftyn = hundredn-(fifty*50);
+    twenty = fiftyn/20;
+    twentyn = fiftyn-(twenty*20);
+    ten = twentyn/10;
+    tenn = twentyn-(ten*10);
+    five = tenn/5;
+    fiven = tenn-(five*5);
+    two = fiven/2;
+    twon = fiven-(two*2);
+    one = twon/1;
+
+
+    cout<<n<<endl;
+    cout<<hundred<<" nota(s) de R$ 100,00"<<endl;
+    cout<<fifty<<" nota(s) de R$ 50,00"<<endl;
+    cout<<twenty<<" nota(s) de R$ 20,00"<<endl;
+    cout<<ten<<" nota(s) de R$ 10,00"<<endl;
+    cout<<five<<" nota(s) de R$ 5,00"<<endl;
+    cout<<two<<" nota(s) de R$ 2,00"<<endl;
+    cout<<one<<" nota(s) de R$ 1,00"<<endl;
+
+    return 0;
+}
+
