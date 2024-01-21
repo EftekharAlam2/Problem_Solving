@@ -430,3 +430,115 @@ int main(){
     return 0;
 }
 
+// Problem 19 - Read an integer value, which is the duration in seconds of a certain event in a factory, and inform it expressed in hours:minutes:seconds.
+// The input file contains an integer N.
+
+#include<iostream>
+
+using namespace std;
+
+int main(){
+    int N;
+    cin>>N;
+
+    int hours = N/3600;
+    int minutes = (N%3600)/60;
+    int seconds = (N%60);
+
+    cout<<hours<<":"<<minutes<<":"<<seconds<<endl;
+    return 0;
+}
+
+// Problem 20 - Read an integer value corresponding to a person's age (in days) and print it in years, months and days, followed by its respective message “ano(s)”, “mes(es)”, “dia(s)”.
+// Note: only to facilitate the calculation, consider the whole year with 365 days and 30 days every month. In the cases of test there will never be a situation that allows 12 months and some days, like 360, 363 or 364. This is just an exercise for the purpose of testing simple mathematical reasoning.
+// The input file contains 1 integer value.
+
+#include<iostream>
+
+using namespace std;
+
+int main(){
+    int N;
+    cin>>N;
+
+    int years = N/365;
+    int remainingDays = N % 365;
+    int months = remainingDays/30;
+    int days = remainingDays%30;
+
+    cout<<years<<" ano(s)"<<endl;
+    cout<<months<<" mes(es)"<<endl;
+    cout<<days<<" dia(s)"<<endl;
+    return 0;
+}
+
+// Problem 21 - Read a value of floating point with two decimal places. This represents a monetary value. After this, calculate the smallest possible number of notes and coins on which the value can be decomposed. The considered notes are of 100, 50, 20, 10, 5, 2. The possible coins are of 1, 0.50, 0.25, 0.10, 0.05 and 0.01. Print the message “NOTAS:” followed by the list of notes and the message “MOEDAS:” followed by the list of coins.
+// The input file contains a value of floating point N (0 ≤ N ≤ 1000000.00).
+
+#include<iostream>
+#include<iomanip>
+
+using namespace std;
+
+int main() {
+    double amount;
+    cin >> setprecision(2) >> amount;
+
+    int notes100, notes50, notes20, notes10, notes5, notes2;
+    int coins1, coins50, coins25, coins10, coins5, coins1cent;
+
+    int amountInCents = static_cast<int>(amount*100);
+
+    notes100 = amountInCents / 10000;
+    amountInCents -= notes100 * 10000;
+
+    notes50 = amountInCents / 5000;
+    amountInCents -= notes50 * 5000;
+
+    notes20 = amountInCents / 2000;
+    amountInCents -= notes20 * 2000;
+
+    notes10 = amountInCents / 1000;
+    amountInCents -= notes10 * 1000;
+
+    notes5 = amountInCents / 500;
+    amountInCents -= notes5 * 500;
+
+    notes2 = amountInCents / 200;
+    amountInCents -= notes2 * 200;
+
+    coins1 = amountInCents / 100;
+    amountInCents -= coins1 * 100;
+
+    coins50 = amountInCents / 50;
+    amountInCents -= coins50 * 50;
+
+    coins25 = amountInCents / 25;
+    amountInCents -= coins25 * 25;
+
+    coins10 = amountInCents / 10;
+    amountInCents -= coins10 * 10;
+
+    coins5 = amountInCents / 5;
+    amountInCents -= coins5 * 5;
+
+    coins1cent = amountInCents;
+
+    cout << "NOTAS:" << endl;
+    cout << notes100 << " nota(s) de R$ 100.00" << endl;
+    cout << notes50 << " nota(s) de R$ 50.00" << endl;
+    cout << notes20 << " nota(s) de R$ 20.00" << endl;
+    cout << notes10 << " nota(s) de R$ 10.00" << endl;
+    cout << notes5 << " nota(s) de R$ 5.00" << endl;
+    cout << notes2 << " nota(s) de R$ 2.00" << endl;
+
+    cout << "MOEDAS:" << endl;
+    cout << coins1 << " moeda(s) de R$ 1.00" << endl;
+    cout << coins50 << " moeda(s) de R$ 0.50" << endl;
+    cout << coins25 << " moeda(s) de R$ 0.25" << endl;
+    cout << coins10 << " moeda(s) de R$ 0.10" << endl;
+    cout << coins5 << " moeda(s) de R$ 0.05" << endl;
+    cout << coins1cent << " moeda(s) de R$ 0.01" << endl;
+
+    return 0;
+}
