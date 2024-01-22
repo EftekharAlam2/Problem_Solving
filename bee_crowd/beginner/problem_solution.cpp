@@ -630,3 +630,43 @@ int main(){
     return 0;
 }
 
+// Problem 1038 - Using the following table, write a program that reads a code and the amount of an item. After, print the value to pay. This is a very simple program with the only intention of practice of selection commands.
+// --------------
+// The input file contains two integer numbers X and Y. X is the product code and Y is the quantity of this item according to the above table.
+
+#include<iostream>
+#include<iomanip>
+
+using namespace std;
+
+int main(){
+    int X,Y;
+    float total;
+    cin>>X>>Y;
+
+    switch(X){
+    case 1:
+        total=Y*4.00;
+        break;
+    case 2:
+        total=Y*4.50;
+        break;
+    case 3:
+        total=Y*5.00;
+        break;
+    case 4:
+        total=Y*2.00;
+        break;
+    case 5:
+        total=Y*1.50;
+        break;
+    }
+
+    cout<<fixed<<setprecision(2);
+    cout<<"Total: R$ "<<total<<endl;
+
+    return 0;
+}
+
+Problem 1039 - 
+
