@@ -894,3 +894,47 @@ int main(){
 // Problem 1047 - Read the start time and end time of a game, in hours and minutes (initial hour, initial minute, final hour, final minute). Then print the duration of the game, knowing that the game can begin in a day and finish in another day,
 // Obs.: With a maximum game time of 24 hours and the minimum game time of 1 minute.
 // Four integer numbers representing the start and end time of the game.
+
+#include<iostream>
+#include<cmath>
+
+using namespace std;
+
+int main(){
+    int start, end, startm, endm, durationh,durationm,totaldurationm;
+    cin>>start>>startm>>end>>endm;
+
+    int totalstartm = (start*60) + startm;
+    int totalendm = (end*60) + endm;
+
+    if(totalstartm>=totalendm){
+        totaldurationm=24*60 - totalstartm+totalendm;
+    }
+    else{
+        totaldurationm=totalendm-totalstartm;
+    }
+
+    durationh=totaldurationm/60;
+    durationm=totaldurationm%60;
+
+    cout<<"O JOGO DUROU "<<durationh<<" HORA(S) E "<<durationm<<" MINUTO(S)"<<endl;
+
+    return 0;
+}
+
+// Problem 1048 - The company ABC decided to give a salary increase to its employees, according to the following table:
+// Salary	Readjustment Rate
+// 0 - 400.00
+// 400.01 - 800.00
+// 800.01 - 1200.00
+// 1200.01 - 2000.00
+// Above 2000.00
+
+// 15%
+// 12%
+// 10%
+// 7%
+// 4%
+
+// Read the employee's salary, calculate and print the new employee's salary, as well the money earned and the increase percentual obtained by the employee, with corresponding messages in Portuguese, as the below example.
+// The input contains only a floating-point number, with 2 digits after the decimal point.
