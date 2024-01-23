@@ -668,5 +668,229 @@ int main(){
     return 0;
 }
 
-Problem 1039 - 
+// Problem 1040 - Read four numbers (N1, N2, N3, N4), which one with 1 digit after the decimal point, corresponding to 4 scores obtained by a student. Calculate the average with weights 2, 3, 4 e 1 respectively, for these 4 scores and print the message "Media: " (Average), followed by the calculated result. If the average was 7.0 or more, print the message "Aluno aprovado." (Approved Student). If the average was less than 5.0, print the message: "Aluno reprovado." (Reproved Student). If the average was between 5.0 and 6.9, including these, the program must print the message "Aluno em exame." (In exam student).
+// In case of exam, read one more score. Print the message "Nota do exame: " (Exam score) followed by the typed score. Recalculate the average (sum the exam score with the previous calculated average and divide by 2) and print the message “Aluno aprovado.” (Approved student) in case of average 5.0 or more) or "Aluno reprovado." (Reproved student) in case of average 4.9 or less. For these 2 cases (approved or reproved after the exam) print the message "Media final: " (Final average) followed by the final average for this student in the last line.
+// The input contains four floating point numbers that represent the students' grades.
 
+#include<iostream>
+#include<iomanip>
+
+using namespace std;
+
+int main(){
+    float n1,n2,n3,n4,n5;
+    cin>>setprecision(1)>>n1>>setprecision(1)>>n2>>setprecision(1)>>n3>>setprecision(1)>>n4;
+
+    float average=((n1*2)+(n2*3)+(n3*4)+(n4*1))/(2+3+4+1);
+
+    if(average>=7.0){
+        cout<<fixed<<setprecision(1);
+        cout<<"Media: "<<average<<endl;
+        cout<<"Aluno aprovado."<<endl;
+    }
+    else if(average<5.0){
+        cout<<fixed<<setprecision(1);
+        cout<<"Media: "<<average<<endl;
+        cout<<"Aluno reprovado."<<endl;
+    }
+    else if(average>=5.0 && average<=6.9){
+        cin>>setprecision(1)>>n5;
+        cout<<fixed<<setprecision(1);
+        cout<<"Media: "<<average<<endl;
+        cout<<"Aluno em exame."<<endl;
+        cout<<"Nota do exame: "<<n5<<endl;
+        float average2=(average+n5)/2;
+        if(average2>=5.0){
+            cout<<"Aluno aprovado."<<endl;
+            cout<<"Media final: "<<average2<<endl;
+        }
+        else if(average2<=4.9){
+            cout<<"Aluno reprovado."<<endl;
+            cout<<"Media final: "<<average2<<endl;
+        }
+    }
+
+    return 0;
+}
+
+// Problem 1041 - Write an algorithm that reads two floating values (x and y), which should represent the coordinates of a point in a plane. Next, determine which quadrant the point belongs, or if you are at one of the Cartesian axes or the origin (x = y = 0).
+// If the point is at the origin, write the message "Origem".
+// If the point is at X axis write "Eixo X", else if the point is at Y axis write "Eixo Y".
+// The input contains the coordinates of a point.
+
+#include<iostream>
+
+using namespace std;
+
+int main(){
+    float x,y;
+    cin>>x>>y;
+
+    if(x==0 && y==0){
+        cout<<"Origem"<<endl;
+    }
+    else if(x==0){
+        cout<<"Eixo Y"<<endl;
+    }
+    else if(y==0){
+        cout<<"Eixo X"<<endl;
+    }
+    else if(x>0 && y>0){
+        cout<<"Q1"<<endl;
+    }
+    else if(x<0 && y>0){
+        cout<<"Q2"<<endl;
+    }
+    else if(x<0 && y<0){
+        cout<<"Q3"<<endl;
+    }
+    else if(x>0 && y<0){
+        cout<<"Q4"<<endl;
+    }
+
+    return 0;
+}
+
+// Problem 1042 - Read three integers and sort them in ascending order. After, print these values in ascending order, a blank line and then the values in the sequence as they were readed.
+// The input contains three integer numbers.
+
+#include<iostream>
+#include<algorithm>
+
+using namespace std;
+
+int main(){
+    float a,b,c;
+    cin>>a>>b>>c;
+
+    int arr[]={a,b,c};
+    sort(arr, arr+3);
+    for(int i=0; i<3; ++i){
+        cout<<arr[i]<<endl;
+    }
+    cout<<endl;
+
+    cout<<a<<endl;
+    cout<<b<<endl;
+    cout<<c<<endl;
+
+    return 0;
+}
+
+// Problem 1043 - Read three point floating values (A, B and C) and verify if is possible to make a triangle with them. If it is possible, calculate the perimeter of the triangle and print the message:
+// Perimetro = XX.X
+// If it is not possible, calculate the area of the trapezium which basis A and B and C as height, and print the message:
+// Area = XX.X
+// The input file has tree floating point numbers.
+
+#include<iostream>
+#include<iomanip>
+
+using namespace std;
+
+int main(){
+    float a,b,c;
+    cin>>a>>b>>c;
+
+    if((a+b)>c && (a+c)>b && (c+b)>a){
+        float p = a+b+c;
+        cout<<fixed<<setprecision(1);
+        cout<<"Perimetro = "<<p<<endl;
+    }
+    else{
+        float area = 0.5*(a+b)*c;
+        cout<<fixed<<setprecision(1);
+        cout<<"Area = "<<area<<endl;
+    }
+
+    return 0;
+}
+
+// Problem 1044 - Read two integer values (A and B). After, the program should print the message "Sao Multiplos" (are multiples) or "Nao sao Multiplos" (aren’t multiples), corresponding to the read values.
+// The input has two integer numbers.
+
+#include<iostream>
+
+using namespace std;
+
+int main(){
+    int a,b;
+    cin>>a>>b;
+
+    if(a%b==0 || b%a==0){
+        cout<<"Sao Multiplos"<<endl;
+    } else{
+        cout<<"Nao sao Multiplos"<<endl;
+    }
+
+    return 0;
+}
+
+// Problem 1045 - Read 3 double numbers (A, B and C) representing the sides of a triangle and arrange them in decreasing order, so that the side A is the biggest of the three sides. Next, determine the type of triangle that they can make, based on the following cases always writing an appropriate message:
+// if A ≥ B + C, write the message: NAO FORMA TRIANGULO
+// if A2 = B2 + C2, write the message: TRIANGULO RETANGULO
+// if A2 > B2 + C2, write the message: TRIANGULO OBTUSANGULO
+// if A2 < B2 + C2, write the message: TRIANGULO ACUTANGULO
+// if the three sides are the same size, write the message: TRIANGULO EQUILATERO
+// if only two sides are the same and the third one is different, write the message: TRIANGULO ISOSCELES
+// The input contains three double numbers, A (0 < A) , B (0 < B) and C (0 < C).
+
+#include<iostream>
+#include<algorithm>
+#include<functional>
+
+using namespace std;
+
+int main(){
+    double x,y,z;
+    cin>>x>>y>>z;
+    double arr[]={x,y,z};
+    sort(arr, arr+3, greater<float>());
+    double a=arr[0];
+    double b=arr[1];
+    double c=arr[2];
+
+    if(a>=(b+c)){
+        cout<<"NAO FORMA TRIANGULO"<<endl;
+    }
+    else{
+        if((a*a)==((b*b)+(c*c))){
+            cout<<"TRIANGULO RETANGULO"<<endl;
+        }
+        if((a*a)>((b*b)+(c*c))){
+            cout<<"TRIANGULO OBTUSANGULO"<<endl;
+        }
+        if((a*a)<((b*b)+(c*c))){
+            cout<<"TRIANGULO ACUTANGULO"<<endl;
+        }
+        if((a==b) && (b==c)){
+            cout<<"TRIANGULO EQUILATERO"<<endl;
+        }
+        if(!((a==b)&&(b==c)) && ((a==b)||(a==c)||(b==c))){
+            cout<<"TRIANGULO ISOSCELES"<<endl;
+        }
+    }
+
+    return 0;
+}
+
+// Problem 1046 - Read the start time and end time of a game, in hours. Then calculate the duration of the game, knowing that the game can begin in a day and finish in another day, with a maximum duration of 24 hours. The message must be printed in portuguese “O JOGO DUROU X HORA(S)” that means “THE GAME LASTED X HOUR(S)”
+// Two integer numbers representing the start and end time of a game.
+
+#include<iostream>
+
+using namespace std;
+
+int main(){
+    int start, end;
+    cin>>start>>end;
+
+    int duration = (end<=start) ? (24-start+end) : (end-start);
+    cout<<"O JOGO DUROU "<<duration<<" HORA(S)"<<endl;
+
+    return 0;
+}
+
+// Problem 1047 - Read the start time and end time of a game, in hours and minutes (initial hour, initial minute, final hour, final minute). Then print the duration of the game, knowing that the game can begin in a day and finish in another day,
+// Obs.: With a maximum game time of 24 hours and the minimum game time of 1 minute.
+// Four integer numbers representing the start and end time of the game.
