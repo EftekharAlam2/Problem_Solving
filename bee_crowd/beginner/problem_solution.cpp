@@ -938,3 +938,110 @@ int main(){
 
 // Read the employee's salary, calculate and print the new employee's salary, as well the money earned and the increase percentual obtained by the employee, with corresponding messages in Portuguese, as the below example.
 // The input contains only a floating-point number, with 2 digits after the decimal point.
+
+#include<iostream>
+#include<iomanip>
+
+using namespace std;
+
+int main(){
+    float salary, increment, totalSalary;
+    int percentage;
+    cin>>setprecision(2)>>salary;
+
+    if(salary>=0 && salary<=400.00){
+        increment = salary*0.15;
+        totalSalary = salary+increment;
+        percentage=15;
+    }
+    else if(salary>=400.01 && salary<=800.00){
+        increment = salary*0.12;
+        totalSalary = salary+increment;
+        percentage=12;
+    }
+    else if(salary>=800.01 && salary<=1200.00){
+        increment = salary*0.10;
+        totalSalary = salary+increment;
+        percentage=10;
+    }
+    else if(salary>=1200.01 && salary<=2000.00){
+        increment = salary*0.07;
+        totalSalary = salary+increment;
+        percentage=7;
+    }
+    else if(salary>2000.00){
+        increment = salary*0.04;
+        totalSalary = salary+increment;
+        percentage=4;
+    }
+
+    cout<<fixed<<setprecision(2);
+    cout<<"Novo salario: "<<totalSalary<<endl;
+    cout<<"Reajuste ganho: "<<increment<<endl;
+    cout<<"Em percentual: "<<percentage<<" %"<<endl;
+
+    return 0;
+}
+
+// Problem 1049 - In this problem, your job is to read three Portuguese words. These words define an animal according to the table below, from left to right. After, print the chosen animal defined by these three words.
+// --------
+// The input contains 3 words, one by line, that will be used to identify the animal, according to the above table, with all letters in lowercase.
+
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+int main(){
+    string w1,w2,w3;
+    cin>>w1;
+    cin>>w2;
+    cin>>w3;
+
+    if(w1=="vertebrado"){
+        if(w2=="ave"){
+            if(w3=="carnivoro"){
+                cout<<"aguia"<<endl;
+            }
+            else if(w3=="onivoro"){
+                cout<<"pomba"<<endl;
+            }
+        }
+        else if(w2=="mamifero"){
+            if(w3=="onivoro"){
+                cout<<"homem"<<endl;
+            }
+            else if(w3=="herbivoro"){
+                cout<<"vaca"<<endl;
+            }
+        }
+    }
+    else if(w1=="invertebrado"){
+        if(w2=="inseto"){
+            if(w3=="hematofago"){
+                cout<<"pulga"<<endl;
+            }
+            else if(w3=="herbivoro"){
+                cout<<"lagarta"<<endl;
+            }
+        }
+        else if(w2=="anelideo"){
+            if(w3=="hematofago"){
+                cout<<"sanguessuga"<<endl;
+            }
+            else if(w3=="onivoro"){
+                cout<<"minhoca"<<endl;
+            }
+        }
+    }
+
+    return 0;
+}
+
+// Problem 1050 - Read an integer number that is the code number for phone dialing. Then, print the destination according to the following table:
+// -------------
+// If the input number isn’t found in the above table, the output must be:
+// DDD nao cadastrado
+// That means “DDD not found” in Portuguese language.
+// The input consists in a unique integer number.
+
