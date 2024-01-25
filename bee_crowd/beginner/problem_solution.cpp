@@ -1045,3 +1045,179 @@ int main(){
 // That means “DDD not found” in Portuguese language.
 // The input consists in a unique integer number.
 
+#include<iostream>
+
+using namespace std;
+
+int main(){
+    int number;
+    cin>>number;
+
+    if(number==61){
+        cout<<"Brasilia"<<endl;
+    }
+    else if(number==71){
+        cout<<"Salvador"<<endl;
+    }
+    else if(number==11){
+        cout<<"Sao Paulo"<<endl;
+    }
+    else if(number==21){
+        cout<<"Rio de Janeiro"<<endl;
+    }
+    else if(number==32){
+        cout<<"Juiz de Fora"<<endl;
+    }
+    else if(number==19){
+        cout<<"Campinas"<<endl;
+    }
+    else if(number==27){
+        cout<<"Vitoria"<<endl;
+    }
+    else if(number==31){
+        cout<<"Belo Horizonte"<<endl;
+    }
+    else{
+        cout<<"DDD nao cadastrado"<<endl;
+    }
+
+    return 0;
+}
+
+// Problem 1051 - In an imaginary country called Lisarb, all the people are very happy to pay their taxes because they know that doesn’t exist corrupt politicians and the taxes are used to benefit the population, without any misappropriation. The currency of this country is Rombus, whose symbol is R$.
+// Read a value with 2 digits after the decimal point, equivalent to the salary of a Lisarb inhabitant. Then print the due value that this person must pay of taxes, according to the table below.
+// ------------
+// Remember, if the salary is R$ 3,002.00 for example, the rate of 8% is only over R$ 1,000.00, because the salary from R$ 0.00 to R$ 2,000.00 is tax free. In the follow example, the total rate is 8% over R$ 1000.00 + 18% over R$ 2.00, resulting in R$ 80.36 at all. The answer must be printed with 2 digits after the decimal point.
+// The input contains only a float-point number, with 2 digits after the decimal point.
+
+#include<iostream>
+#include<iomanip>
+
+using namespace std;
+
+int main(){
+    float n, bonus, value;
+    cin>>setprecision(2)>>n;
+
+    if(n<2000.00){
+        cout<<"Isento"<<endl;
+    }
+    else{
+        if(n>3000.00){
+            if(n>4500.00){
+                value = n-4500.00;
+                bonus = (value*0.28)+350;
+            }
+            else{
+                value = n-3000.00;
+                bonus = (value*0.18)+80;
+            }
+        }
+        else{
+            value = n-2000.00;
+            bonus = value*0.08;
+        }
+        cout<<fixed<<setprecision(2);
+        cout<<"R$ "<<bonus<<endl;
+    }
+
+    return 0;
+}
+
+// Problem 1052 - Read an integer number between 1 and 12, including. Corresponding to this number, you must print the month of the year, in english, with the first letter in uppercase.
+// The input contains only an integer number.
+
+#include<iostream>
+using namespace std;
+
+int main(){
+    int n;
+    cin>>n;
+
+    switch(n){
+    case 1:
+        cout<<"January"<<endl;
+        break;
+    case 2:
+        cout<<"February"<<endl;
+        break;
+    case 3:
+        cout<<"March"<<endl;
+        break;
+    case 4:
+        cout<<"April"<<endl;
+        break;
+    case 5:
+        cout<<"May"<<endl;
+        break;
+    case 6:
+        cout<<"June"<<endl;
+        break;
+    case 7:
+        cout<<"July"<<endl;
+        break;
+    case 8:
+        cout<<"August"<<endl;
+        break;
+    case 9:
+        cout<<"September"<<endl;
+        break;
+    case 10:
+        cout<<"October"<<endl;
+        break;
+    case 11:
+        cout<<"November"<<endl;
+        break;
+    case 12:
+        cout<<"December"<<endl;
+        break;
+    }
+
+    return 0;
+}
+
+// Problem 1059 - Write a program that prints all even numbers between 1 and 100, including them if it is the case.
+// In this extremely simple problem there is no input.
+
+#include<iostream>
+
+using namespace std;
+
+int main(){
+    for(int i=1; i<101; i++){
+        if(i%2==0){
+            cout<<i<<endl;
+        }
+    }
+
+    return 0;
+}
+
+// Problem 1060 - Write a program that reads 6 numbers. These numbers will only be positive or negative (disregard null values). Print the total number of positive numbers.
+// Six numbers, positive and/or negative.
+
+#include<iostream>
+
+using namespace std;
+
+int main(){
+    int count=0;
+
+    for(int i=0; i<6; i++){
+        float number;
+        cin>>number;
+        if(number>0){
+            count++;
+        }
+    }
+
+    cout<<count<<" valores positivos"<<endl;
+
+    return 0;
+}
+
+// Problem 1061 - Peter is organizing an event in his University. The event will be in April month, beginning and finishing within April month. The problem is: Peter wants to calculate the event duration in seconds, knowing obviously the begin and the end time of the event.
+// You know that the event can take from few seconds to some days, so, you must help Peter to compute the total time corresponding to duration of the event.
+// The first line of the input contains information about the beginning day of the event in the format: “Dia xx”. The next line contains the start time of the event in the format presented in the sample input. Follow 2 input lines with same format, corresponding to the end of the event.
+
+
