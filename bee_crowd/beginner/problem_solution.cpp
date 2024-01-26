@@ -1220,4 +1220,142 @@ int main(){
 // You know that the event can take from few seconds to some days, so, you must help Peter to compute the total time corresponding to duration of the event.
 // The first line of the input contains information about the beginning day of the event in the format: “Dia xx”. The next line contains the start time of the event in the format presented in the sample input. Follow 2 input lines with same format, corresponding to the end of the event.
 
+#include<iostream>
+#include<string>
 
+using namespace std;
+
+int main(){
+    int startday, endday;
+    int startHours, startMinutes, startSeconds, endHours, endMinutes, endSeconds, durationInSeconds;
+    cin.ignore(4);
+    cin >> startday;
+    cin.ignore(1); 
+
+    cin >> startHours;
+    cin.ignore(3);
+    cin >> startMinutes;
+    cin.ignore(3);
+    cin >> startSeconds;
+    cin.ignore(1); 
+
+    cin.ignore(4);
+    cin >> endday;
+    cin.ignore(1); 
+
+    cin >> endHours;
+    cin.ignore(3);
+    cin >> endMinutes;
+    cin.ignore(3);
+    cin >> endSeconds;
+    cin.ignore(1);
+
+    int startDurationInSeconds = startSeconds + (startMinutes*60) + (startHours*3600);
+    int endDurationInSeconds = endSeconds + (endMinutes*60) + (endHours*3600);
+    
+    if(endday==startday){
+        durationInSeconds = endDurationInSeconds - startDurationInSeconds;
+    }
+    else{
+        durationInSeconds = (86400*(endday-startday)) + endDurationInSeconds - startDurationInSeconds;
+    }
+
+    int days = durationInSeconds/86400;
+    durationInSeconds %= 86400;
+    int hours = durationInSeconds/3600;
+    durationInSeconds %= 3600;
+    int minutes = durationInSeconds/60;
+    int seconds = durationInSeconds%60;
+
+    cout<<days<<" dia(s)"<<endl;
+    cout<<hours<<" hora(s)"<<endl;
+    cout<<minutes<<" minuto(s)"<<endl;
+    cout<<seconds<<" segundo(s)"<<endl;
+
+    return 0;
+}
+
+// Problem 1064 - Read 6 values that can be floating point numbers. After, print how many of them were positive. In the next line, print the average of all positive values typed, with one digit after the decimal point.
+// The input consist in 6 numbers that can be integer or floating point values. At least one number will be positive.
+
+#include<iostream>
+#include<iomanip>
+
+using namespace std;
+
+int main(){
+    int n=0;
+    float values;
+    double total=0;
+
+    for(int i=0; i<6; i++){
+        cin>>values;
+        if(values>0){
+            n++;
+            total+=values;
+        }
+    }
+
+    double average = total/n;
+    cout<<n<<" valores positivos"<<endl;
+    cout<<fixed<<setprecision(1);
+    cout<<average<<endl;
+
+    return 0;
+}
+
+// Problem 1065 - Make a program that reads five integer values. Count how many of these values ​​are even and  print this information like the following example.
+// The input will be 5 integer values.
+
+#include<iostream>
+
+using namespace std;
+
+int main(){
+    int n=0, values;
+
+    for(int i=0; i<5; i++){
+        cin>>values;
+        if(values%2 == 0){
+            n++;
+        }
+    }
+
+    cout<<n<<" valores pares"<<endl;
+
+    return 0;
+}
+
+// Problem 1066 - Make a program that reads five integer values. Count how many   of these values are even, odd, positive and negative. Print these information like following example.
+// The input will be 5 integer values.
+
+#include<iostream>
+
+using namespace std;
+
+int main(){
+    int even=0, odd=0, negative=0, positive=0, values;
+
+    for(int i=0; i<5; i++){
+        cin>>values;
+        if(values>0){
+            positive++;
+        }
+        if(values<0){
+            negative++;
+        }
+        if(values%2 == 0){
+            even++;
+        }
+        if(values%2 != 0){
+            odd++;
+        }
+    }
+
+    cout<<even<<" valor(es) par(es)"<<endl;
+    cout<<odd<<" valor(es) impar(es)"<<endl;
+    cout<<positive<<" valor(es) positivo(s)"<<endl;
+    cout<<negative<<" valor(es) negativo(s)"<<endl;
+
+    return 0;
+}
