@@ -1359,3 +1359,69 @@ int main(){
 
     return 0;
 }
+
+// Problem 1067 - Read an integer value X (1 <= X <= 1000).  Then print the odd numbers from 1 to X, each one in a line, including X if is the case.
+// The input will be an integer value.
+
+#include<iostream>
+
+using namespace std;
+
+int main(){
+    int x;
+    cin>>x;
+    for(int i=1; i<=x; i++){
+        if(i%2 != 0){
+            cout<<i<<endl;
+        }
+    }
+    
+    return 0;
+}
+
+// Problem 1070 - Read an integer value X and print the 6 consecutive odd numbers from X, a value per line, including X if it is the case.
+// The input will be a positive integer value.
+
+#include<iostream>
+
+using namespace std;
+
+int main(){
+    int x, j=1;
+    cin>>x;
+    for(int i=x; j<7; i++){
+        if(i%2 != 0){
+            cout<<i<<endl;
+            i++;
+            j++;
+        }
+    }
+    
+    return 0;
+}
+
+// Problem 1071 - Read two integer values X and Y. Print the sum of all odd values between them.
+// The input file contain two integer values.
+
+#include<iostream>
+
+using namespace std;
+
+int main(){
+    int x,y,sum=0;
+    cin>>x;
+    cin>>y;
+    
+    if(x>y){
+        swap(x,y);
+    }
+    for(int i=x+1; i<y; i++){
+        if(i%2 != 0){
+            sum += i;
+        }
+    }
+
+    cout<<sum<<endl;
+
+    return 0;
+}
