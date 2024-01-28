@@ -1425,3 +1425,179 @@ int main(){
 
     return 0;
 }
+
+// Problem 1072 - Read an integer N. This N will be the number of integer numbers X that will be read.
+// Print how many these numbers X are in the interval [10,20] and how many values are out of this interval.
+// The first line of input is an integer N (N < 10000), that indicates the total number of test cases.
+// Each case is an integer number X (-107 < X < 107).
+
+#include<iostream>
+
+using namespace std;
+
+int main(){
+    int x, n, in=0, out=0;
+    cin>>n;
+
+    for(int i=0; i<n; i++){
+        cin>>x;
+        if(x>=10 && x<=20){
+            in++;
+        }
+        else{
+            out++;
+        }
+    }
+
+    cout<<in<<" in"<<endl;
+    cout<<out<<" out"<<endl;
+
+    return 0;
+}
+
+// Problem 1073 - Read an integer N. Print the square of each one of the even values from 1 to N including N if it is the case.
+// The input contains an integer N (5 < N < 2000).
+
+#include<iostream>
+
+using namespace std;
+
+int main(){
+    int x;
+    cin>>x;
+    for(int i=1; i<=x; i++){
+        if(i%2 == 0){
+            int output = i*i;
+            cout<<i<<"^2 = "<<output<<endl;
+        }
+    }
+
+    return 0;
+}
+
+// Problem 1074 - Read an integer value N. After, read these N values and print a message for each value saying if this value is odd, even, positive or negative. In case of zero (0), although the correct description would be "EVEN NULL", because by definition zero is even, your program must print only "NULL", without quotes.
+// The first line of input is an integer N (N < 10000), that indicates the total number of test cases. Each case is a integer number X (-107 < X <107).
+
+#include<iostream>
+
+using namespace std;
+
+int main(){
+    int x, n;
+    cin>>n;
+    for(int i=0; i<n; i++){
+        cin>>x;
+        if(x%2 == 0){
+            if(x>0){
+                cout<<"EVEN POSITIVE"<<endl;
+            }
+            if(x<0){
+                cout<<"EVEN NEGATIVE"<<endl;
+            }
+        }
+        if(x%2 != 0){
+            if(x>0){
+                cout<<"ODD POSITIVE"<<endl;
+            }
+            if(x<0){
+                cout<<"ODD NEGATIVE"<<endl;
+            }
+        }
+        if(x == 0){
+            cout<<"NULL"<<endl;
+        }
+    }
+
+    return 0;
+}
+
+// Problem 1075 - Read an integer N. Print all numbers between 1 and 10000, which divided by N will give the rest = 2.
+// The input is an integer N (N < 10000)
+
+#include<iostream>
+
+using namespace std;
+
+int main(){
+    int x;
+    cin>>x;
+    for(int i=1; i<=10000; i++){
+        if(i%x == 2){
+            cout<<i<<endl;
+        }
+    }
+
+    return 0;
+}
+
+// Problem 1078 - Read an integer N (2 < N < 1000). Print the multiplication table of N.
+// 1 x N = N      2 x N = 2N        ...       10 x N = 10N  
+// The input is an integer N (1 < N < 1000).
+
+#include<iostream>
+
+using namespace std;
+
+int main(){
+    int x;
+    cin>>x;
+    for(int i=1; i<=10; i++){
+        int output = i*x;
+        cout<<i<<" x "<<x<<" = "<<output<<endl;
+    }
+
+    return 0;
+}
+
+// Problem 1079 - Read an integer N, which represents the number of following test cases. Each test case consists of three floating-point numbers, each one with one digit after the decimal point. Print the weighted average for each of these sets of three numbers, considering that the first number has weight 2, the second number has weight 3 and the third number has weight 5.
+// The input file contains an integer number N in the first line. Each N following line is a test case with three float-point numbers, each one with one digit after the decimal point.
+
+#include<iostream>
+#include<iomanip>
+
+using namespace std;
+
+int main(){
+    int n;
+    float x,y,z;
+    cin>>n;
+    for(int i=0; i<n; i++){
+        cin>>setprecision(1)>>x>>setprecision(1)>>y>>setprecision(1)>>z;
+        float output = ((x*2)+(y*3)+(z*5))/(2+3+5);
+        cout<<fixed<<setprecision(1);
+        cout<<output<<endl;
+    }
+
+    return 0;
+}
+
+// Problem 1080 - Read 100 integer numbers. Print the highest read value and the input position.
+// The input file contains 100 distinct positive integer numbers.
+
+#include<iostream>
+
+using namespace std;
+
+int main(){
+    int x, highest=0, position;
+    for(int i=1; i<=100; i++){
+        cin>>x;
+        if(x>highest){
+            highest=x;
+            position=i;
+        }
+    }
+
+    cout<<highest<<endl;
+    cout<<position<<endl;
+
+    return 0;
+}
+
+// Problem 1094 - Maria has just started as graduate student in a medical school and she's needing your help to organize a laboratory experiment which she is responsible about. She wants to know, at the end of the year, how many animals were used in this laboratory and the percentage of each type of animal is used at all.
+// This laboratory uses in particular three types of animals: frogs, rats and rabbits. To obtain this information, it knows exactly the number of experiments that were performed, the type and quantity of each animal is used in each experiment.
+// The first line of input contains an integer N indicating the number of test cases that follows. Each test case contains an integer Amount (1 ≤ Amount ≤ 15) which represents the amount of animal used and a character Type ('C', 'R' or 'S'), indicating the type of animal:
+// - C: Coelho (rabbit in portuguese)
+// - R: Rato (rat  in portuguese)
+// - S: Sapo (frog in portuguese)
+
