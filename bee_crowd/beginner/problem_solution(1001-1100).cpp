@@ -1601,3 +1601,164 @@ int main(){
 // - R: Rato (rat  in portuguese)
 // - S: Sapo (frog in portuguese)
 
+#include<iostream>
+#include<iomanip>
+
+using namespace std;
+
+int main(){
+    int n, count, totalAnimals=0, totalRabbit=0, totalRat=0, totalFrog=0;
+    char type;
+    float rabbitP, ratP, frogP;
+
+    cin>>n;
+    for(int i=0; i<n; i++){
+        cin>>count>>type;
+        totalAnimals+=count;
+        switch(type){
+            case 'C':
+                totalRabbit+=count;
+                break;
+            case 'R':
+                totalRat+=count;
+                break;
+            case 'S':
+                totalFrog+=count;
+                break;
+        }
+    }
+    rabbitP = (static_cast<float>(totalRabbit)/totalAnimals)*100;
+    ratP = (static_cast<float>(totalRat)/totalAnimals)*100;
+    frogP = (static_cast<float>(totalFrog)/totalAnimals)*100;
+
+    cout<<"Total: "<<totalAnimals<<" cobaias"<<endl;
+    cout<<"Total de coelhos: "<<totalRabbit<<endl;
+    cout<<"Total de ratos: "<<totalRat<<endl;
+    cout<<"Total de sapos: "<<totalFrog<<endl;
+    cout<<fixed<<setprecision(2);
+    cout<<"Percentual de coelhos: "<<rabbitP<<" %"<<endl;
+    cout<<"Percentual de ratos: "<<ratP<<" %"<<endl;
+    cout<<"Percentual de sapos: "<<frogP<<" %"<<endl;
+
+    return 0;
+}
+
+// Problem 1095 - Make a program that prints the sequence like the following example.
+// This problem doesn't have input.
+
+#include<iostream>
+
+using namespace std;
+
+int main(){
+    int i=1, j=60;
+    for(int a=0; j>=0; a++){
+        cout<<"I="<<i<<" J="<<j<<endl;
+        i+=3;
+        j-=5;
+    }
+
+    return 0;
+}
+
+// Problem 1096 - Make a program that prints the sequence like the following exemple.
+// This problem doesn't have input.
+
+#include<iostream>
+
+using namespace std;
+
+int main(){
+    for(int i=1; i<=9; i+=2){
+        for(int j=7; j>=5; j--){
+            cout<<"I="<<i<<" J="<<j<<endl;
+        }
+    }
+
+    return 0;
+}
+
+// Problem 1097 - Make a program that prints the sequence like the following exemple.
+// This problem doesn't have input.
+
+#include<iostream>
+
+using namespace std;
+
+int main(){
+    for(int i=1; i<=9; i+=2){
+        if(i==1){
+            for(int j=7; j>=5; j--){
+                cout<<"I="<<i<<" J="<<j<<endl;
+            }
+        }
+        if(i==3){
+            for(int j=9; j>=7; j--){
+                cout<<"I="<<i<<" J="<<j<<endl;
+            }
+        }
+        if(i==5){
+            for(int j=11; j>=9; j--){
+                cout<<"I="<<i<<" J="<<j<<endl;
+            }
+        }
+        if(i==7){
+            for(int j=13; j>=11; j--){
+                cout<<"I="<<i<<" J="<<j<<endl;
+            }
+        }
+        if(i==9){
+            for(int j=15; j>=13; j--){
+                cout<<"I="<<i<<" J="<<j<<endl;
+            }
+        }
+    }
+
+    return 0;
+}
+
+// Problem 1098 - Make a program that prints the sequence like the following example.
+// This problem doesn't have input.
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    for(int i=0; i<=20; i+=2){
+        float fi=i/10.0;
+
+        for(int j=1; j<=3; j++){
+            cout << "I=" << fi << " J=" << (j + fi) << endl;
+        }
+    }
+
+    return 0;
+}
+
+// Problem 1099 - Read an integer N that is the number of test cases. Each test case is a line containing two integer numbers X and Y. Print the sum of all odd values between them, not including X and Y.
+// The first line of input is an integer N that is the number of test cases that follow. Each test case is a line containing two integer X and Y.
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int n, x, y;
+    cin>>n;
+    for(int i=0; i<n; i++){
+        cin>>x>>y;
+        int sum=0;
+        if(x>y){
+            swap(x,y);
+        }
+        for(int j=x+1; j<y; j++){
+            if(j%2 != 0){
+                sum+=j;
+            }
+        }
+        cout<<sum<<endl;
+    }
+
+    return 0;
+}
