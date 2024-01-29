@@ -227,6 +227,51 @@ int main() {
 // - A message indicating the team that won the largest number of GRENAIS (or the message: "Não houve vencedor" if both team won the same quantity of GRENAIS).
 // The input contains two integer values​​, corresponding to the goals scored by both teams. Then there is an integer (1 or 2), corresponding to the repetition of the algorithm.
 
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int grenais=0, draws=0, inter=0, gremio=0;
+
+    while(true){
+        int interG,gremioG;
+        cin>>interG>>gremioG;
+        grenais++;
+        if(interG>gremioG){
+            inter++;
+        }
+        else if(interG<gremioG){
+            gremio++;
+        }
+        else{
+            draws++;
+        }
+
+        cout<<"Novo grenal (1-sim 2-nao)"<<endl;
+        int choice;
+        cin>>choice;
+        if(choice != 1){
+            break;
+        }
+    }
+
+    cout<<grenais<<" grenais"<<endl;
+    cout<<"Inter:"<<inter<<endl;
+    cout<<"Gremio:"<<gremio<<endl;
+    cout<<"Empates:"<<draws<<endl;
+    if(inter>gremio){
+        cout<<"Inter venceu mais"<<endl;
+    }
+    else if(inter<gremio){
+        cout<<"Gremio venceu mais"<<endl;
+    }
+    else{
+        cout<<"Não houve vencedor"<<endl;
+    }
+
+    return 0;
+}
 
 
 
