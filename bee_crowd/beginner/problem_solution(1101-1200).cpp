@@ -273,6 +273,185 @@ int main() {
     return 0;
 }
 
+// Problem 1132 - Write a program that reads two integer numbers X and Y and calculate the sum of all number not divisible by 13 between them, including both.
+// The input file contains 2 integer numbers X and Y without any order.
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int x,y,sum=0;
+    cin>>x;
+    cin>>y;
+    if(x>y){
+        swap(x,y);
+    }
+
+    for(int i=x; i<=y; i++){
+        if(i%13 != 0){
+            sum+=i;
+        }
+    }
+    cout<<sum<<endl;
+
+    return 0;
+}
+
+// Problem 1133 - Write a program that reads two integer numbers X and Y. Print all numbers between X and Y which dividing it by 5 the rest is equal to 2 or equal to 3.
+// The input file contains 2 any positive integers, not necessarily in ascending order.
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int x,y;
+    cin>>x;
+    cin>>y;
+    if(x>y){
+        swap(x,y);
+    }
+
+    for(int i=x+1; i<y; i++){
+        if(i%5 == 2 || i%5 == 3){
+            cout<<i<<endl;
+        }
+    }
+
+    return 0;
+}
+
+// Problem 1134 - A gas station wants to determine which of their products is the preference of their customers. Write a program to read the type of fuel supplied (coded as follows: 1. Alcohol 2. Gasoline 3. Diesel 4. End). If you enter an invalid code (outside the range of 1 to 4) a new code must be requested. The program will end when the inserted code is the number 4.
+// The input contains only integer and positive values.
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int alcohol=0, gasoline=0, diesel=0;
+    while(true){
+        int n;
+        cin>>n;
+        if(n==4){
+            break;
+        }
+        else{
+            switch(n){
+            case 1:
+                alcohol++;
+                break;
+            case 2:
+                gasoline++;
+                break;
+            case 3:
+                diesel++;
+                break;
+            default:
+                break;
+            }
+        }
+    }
+
+    cout<<"MUITO OBRIGADO"<<endl;
+    cout<<"Alcool: "<<alcohol<<endl;
+    cout<<"Gasolina: "<<gasoline<<endl;
+    cout<<"Diesel: "<<diesel<<endl;
+
+    return 0;
+}
+
+// Problem 1142 - Write a program that reads an integer N. This N is the number of output lines printed by this program.
+// The input file contains an integer N.
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin>>n;
+    for(int i=1; i<=n*4; i+=4){
+        cout<<i<<" "<<i+1<<" "<<i+2<<" PUM"<<endl;
+    }
+
+    return 0;
+}
+
+// Problem 1143 - Write a program that reads an integer N (1 < N < 1000). This N is the number of output lines printed by this program.
+// The input file contains an integer N.
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin>>n;
+    for(int i=1; i<=n; i++){
+        cout<<i<<" "<<i*i<<" "<<i*i*i<<endl;
+    }
+
+    return 0;
+}
+
+// Problem 1144 - Write a program that reads an integer N. N * 2 lines must be printed by this program according to the example below. For numbers with more than 6 digits, all digits must be printed (no cientific notation allowed).
+// The input file contains an integer N (1 < N < 1000).
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin>>n;
+    for(int i=1; i<=n; i++){
+        cout<<i<<" "<<i*i<<" "<<i*i*i<<endl;
+        cout<<i<<" "<<(i*i)+1<<" "<<(i*i*i)+1<<endl;
+    }
+
+    return 0;
+}
+
+// Problem 1145 - Write an program that reads two numbers X and Y (X < Y). After this, show a sequence of 1 to y, passing to the next line to each X numbers.
+// The input contains two integer numbers X (1 < X < 20) and Y (X < Y < 100000).
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int x,y;
+    cin>>x>>y;
+    for(int i=1; i<=y; i++){
+        cout<<i;
+        if(i%x == 0 || i==x){
+            cout<<endl;
+        }
+        else{
+            cout<<" ";
+        }
+    }
+
+    return 0;
+}
+
+// Problem 1146 - Your program must read an integer X indefinited times (the program must stop when X is equal to zero). For each X print the sequence from 1 to X, with one space between each one of these numbers.
+// PS: Be carefull. Don't leave any space after the last number of each line, otherwise you'll get Presentation Error.
+// The input file contains many integer numbers. The last one is zero.
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
