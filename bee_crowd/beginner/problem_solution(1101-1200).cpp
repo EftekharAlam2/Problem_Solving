@@ -441,6 +441,65 @@ int main() {
 // PS: Be carefull. Don't leave any space after the last number of each line, otherwise you'll get Presentation Error.
 // The input file contains many integer numbers. The last one is zero.
 
+#include <iostream>
+
+using namespace std;
+
+
+int main() {
+    while(true){
+        int n;
+        cin>>n;
+        if(n==0){
+            break;
+        }
+        else{
+            for(int i=1; i<=n; i++){
+                cout<<i;
+                if(i==n){
+                    cout<<endl;
+                }
+                else{
+                    cout<<" ";
+                }
+            }
+        }
+    }
+
+    return 0;
+}
+
+// Problem 1149 - Write an algorithm to read a value A and a value N. Print the sum of N numbers from A (inclusive). While N is negative or ZERO, a new N (only N) must be read. All input values are in the same line.
+// The input contains only integer values, ​​can be positive or negative.
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int x,n,sum=0;
+    cin>>x>>n;
+    while(true){
+        if(n<=0){
+            cin>>n;
+        }
+        else{
+            break;
+        }
+    }
+    for(int i=x; i<x+n; i++){
+        sum+=i;
+    }
+    cout<<sum<<endl;
+
+    return 0;
+}
+
+// Problem 1150 - Write a program that reads two integers: X and Z (Z must be read as many times as necessary, until a number greater than X is read). Count how many integers must be summed in sequence (starting at and including X) so that the sum exceeds Z the minimum possible and writes this number.
+// The input may have, for example, the numbers ​​21 21 15 30. In this case, the number 21 is assumed for X, The numbers 21 and 15 must be ignored because they are smaller or equal to X. The number 30 is within the specification (greater than X) and is valid. So, the final result must be 2 for this test case, because the sum (21 + 22) is bigger than 30.
+// The input contains only integer values​​, one per line, which may be positive or negative. The first number is the value of X. The next line will contain Z. If Z does not meet the specification of the problem, it should be read again, as many times as necessary.
+
+
 
 
 
