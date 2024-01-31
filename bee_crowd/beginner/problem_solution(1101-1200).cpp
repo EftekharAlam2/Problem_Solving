@@ -499,22 +499,400 @@ int main() {
 // The input may have, for example, the numbers ​​21 21 15 30. In this case, the number 21 is assumed for X, The numbers 21 and 15 must be ignored because they are smaller or equal to X. The number 30 is within the specification (greater than X) and is valid. So, the final result must be 2 for this test case, because the sum (21 + 22) is bigger than 30.
 // The input contains only integer values​​, one per line, which may be positive or negative. The first number is the value of X. The next line will contain Z. If Z does not meet the specification of the problem, it should be read again, as many times as necessary.
 
+#include <iostream>
 
+using namespace std;
 
+int main() {
+    int x,z,sum=0,count=0;
+    cin>>x;
+    cin>>z;
+    while(z<=x){
+        cin>>z;
+    }
+    while(sum<=z){
+        sum+=x;
+        x++;
+        count++;
+    }
+    cout<<count<<endl;
 
+    return 0;
+}
 
+// Problem 1151 - The following sequence of numbers 0 1 1 2 3 5 8 13 21 ... is known as the Fibonacci Sequence. Thereafter, each number after the first 2 is equal to the sum of the previous two numbers. Write an algorithm that reads an integer N (N < 46) and that print the first N numbers of this sequence.
+// The input file contains an integer number N (0 < N < 46).
 
+#include <iostream>
 
+using namespace std;
 
+int main() {
+    int n,first=0,second=1,next;
+    cin>>n;
+    for(int i=0; i<n; i++){
+        if(i<=1){
+            next=i;
+        }
+        else{
+            next=first+second;
+            first=second;
+            second=next;
+        }
+        if(i==n-1){
+            cout<<next<<endl;
+        } else{
+            cout<<next<<" ";
+        }
+    }
 
+    return 0;
+}
 
+// Problem 1153 - Read a value N. Calculate and write its corresponding factorial. Factorial of N = N * (N-1) * (N-2) * (N-3) * ... * 1.
+// The input contains an integer value N (0 < N < 13).
 
+#include <iostream>
 
+using namespace std;
 
+int main() {
+    int n, result;
+    cin>>n;
+    result=n;
+    for(int i=1; i<n; i++){
+        result*=n-i;
+    }
+    cout<<result<<endl;
 
+    return 0;
+}
 
+// Problem 1154 - Write an algorithm to read an undeterminated number of data, each containing an individual's age. The final data, which will not enter in the calculations, contains the value of a negative age. Calculate and print the average age of this group of individuals.
+// The input contains an undetermined number of integers. The input will be stop when a negative value is read.
 
+#include <iostream>
+#include<iomanip>
 
+using namespace std;
+
+int main() {
+    int n, sum=0,count=0;
+    while(true){
+        cin>>n;
+        if(n<=0){
+            break;
+        }
+        sum+=n;
+        count++;
+    }
+    float average=(sum+0.0)/count;
+    cout<<fixed<<setprecision(2);
+    cout<<average<<endl;
+    
+    return 0;
+}
+
+// Problem - Write an algorithm to calculate and write the value of S, S being given by:
+// S = 1 + 1/2 + 1/3 + … + 1/10o
+// There is no input in this problem.
+
+#include <iostream>
+#include<iomanip>
+
+using namespace std;
+
+int main() {
+    float result=0.0;
+    for(int i=1; i<=100; i++){
+        result+=(1.0/i);
+    }
+    cout<<fixed<<setprecision(2);
+    cout<<result<<endl;
+
+    return 0;
+}
+
+// Problem 1156 - Write an algorithm to calculate and write the value of S, S being given by:
+// S = 1 + 3/2 + 5/4 + 7/8 + ... + 39/?
+// There is no input in this problem.
+
+#include <iostream>
+#include<iomanip>
+
+using namespace std;
+
+int main() {
+    int upper=1, lower=1;;
+    float result=1.0;
+    for(int i=1; upper<39; i++){
+        result+=(((upper+=2)+0.0)/(lower*=2));
+    }
+    cout<<fixed<<setprecision(2);
+    cout<<result<<endl;
+
+    return 0;
+}
+
+// Problem 1157 - Read an integer N and compute all its divisors.
+// The input file contains an integer value.
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin>>n;
+    for(int i=1; i<=n; i++){
+        if(n%i==0){
+            cout<<i<<endl;
+        }
+    }
+    return 0;
+}
+
+// Problem 1158 - Read an integer N that is the number of test cases that follows. Each test case contains two integers X and Y. Print one output line for each test case that is the sum of Y odd numbers from X including it if is the case. For example:
+// for the input 4 5, the output must be 45, that is: 5 + 7 + 9 + 11 + 13
+// for the input 7 4, the output must be 40, that is: 7 + 9 + 11 + 13
+// The first line of the input is an integer N that is the number of test cases that follow. Each test case is a line containing two integer X and Y.
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin>>n;
+    for(int i=0; i<n; i++){
+        int x, y, count=0, sum=0;
+        cin>>x>>y;
+        for(int i=x; count<y; i++){
+            if(i%2!=0){
+                sum+=i;
+                count++;
+            }
+        }
+        cout<<sum<<endl;
+    }
+    return 0;
+}
+
+// Problem 1159 - The program must read an integer X indefinite times (stop when X=0). For each X, print the sum of five consecutive even numbers from X, including it if X is even. If the input number is 4, for example, the output must be 40, that is the result of the operation: 4+6+8+10+12. If the input number is 11, for example, the output must be 80, that is the result of 12+14+16+18+20.
+// The input file contains many integer numbers. The last one is zero.
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    while(true){
+        int x, count=0, sum=0;
+        cin>>x;
+        if(x==0){
+            break;
+        }
+        for(int i=x; count<5; i++){
+            if(i%2==0){
+                sum+=i;
+                count++;
+            }
+        }
+        cout<<sum<<endl;
+    }
+
+    return 0;
+}
+
+// Problem 1160 - Mariazinha wants to solve an interesting problem. Given the population and growing rate of 2 cities (A and B), she would like to know how many years would be necessary to the smaller city (always A) to be greater than the larger city (always B) in population. Of course, she only wants to know the result for cities that the growing rate for city A is bigger than the growing rate for city B, therefore, she separated these test cases for you. Your job is to build a program that print the time in years for each test case.
+// However, in some cases the time can be so big and Mariazinha don't want to know the exact time for these cases. In this way, for these test cases, it is enough printing the message "Mais de 1 seculo", that means "More than a Century".
+// The first line of the input contains a single integer T, indicating the number of test cases (1 ≤ T ≤ 3000). Each test case contains four numbers: two integers PA and PB (100 ≤ PA < 1000000, 100 ≤ PB ≤ 1000000, PA < PB) indicating respectively the population of A and B and two numbers G1 and G2 (0.1 ≤ G1 ≤ 10.0, 0.0 ≤ G2 ≤ 10.0, G2 < G1) with one digit after the decimal point each, indicating the populational growing (in percentual) for A and B respectively.
+
+#include <iostream>
+#include<iomanip>
+#include<cmath>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin>>n;
+    while(n--){
+        int pa,pb, years=0;
+        float g1,g2;
+        cin>>pa>>pb>>setprecision(1)>>g1>>setprecision(1)>>g2;
+
+        while(pa<=pb){
+            pa+=floor((pa*g1)/100);
+            pb+=floor((pb*g2)/100);
+            years++;
+            if(years>100){
+                cout<<"Mais de 1 seculo."<<endl;
+                break;
+            }
+        }
+        if(years<=100){
+            cout<<years<<" anos."<<endl;
+        }
+    }
+
+    return 0;
+}
+
+// Problem 1164 - In mathematics, a perfect number is an integer for which the sum of all its own positive divisors (excluding itself) is equal to the number itself. For example the number 6 is perfect, because 1+2+3 is equal to 6. Your task is to write a program that read integer numbers and print a message informing if these numbers are perfect or are not perfect.
+// The input contains several test cases. The first contains the number of test cases N (1 ≤ N ≤ 100). Each one of the following N lines contains an integer X (1 ≤ X ≤ 108), that can be or not a perfect number.
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin>>n;
+    while(n--){
+        int x, sum=0, i=1;
+        cin>>x;
+        while(i<x){
+            if(x%i==0){
+                sum+=i;
+            }
+            i++;
+        }
+        if(sum==x){
+            cout<<x<<" eh perfeito"<<endl;
+        }
+        else{
+            cout<<x<<" nao eh perfeito"<<endl;
+        }
+    }
+
+    return 0;
+}
+
+// Problem 1165 - A Prime Number is a number that is divisible only by 1 (one) and by itself. For example the number 7 is Prime, because it can be divided only by 1 and by 7.
+// The input contains several test cases. The first contains the number of test cases N (1 ≤ N ≤ 100). Each one of the following N lines contains an integer X (1 < X ≤ 107), that can be or not a prime number.
+
+#include <iostream>
+#include<cmath>
+
+using namespace std;
+
+bool prime(int x){
+    if(x<1){
+        return false;
+    }
+    for(int i=2; i<=sqrt(x); i++){
+        if(x%i==0){
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+    int n;
+    cin>>n;
+    while(n--){
+        int x;
+        cin>>x;
+
+        if(prime(x)){
+            cout<<x<<" eh primo"<<endl;
+        } else{
+            cout<<x<<" nao eh primo"<<endl;
+        }
+    }
+
+    return 0;
+}
+
+// Problem 1172 - Read an array X[10]. After, replace every null or negative number of X ​by 1. Print all numbers stored in the array X.
+// The input contains 10 integer numbers. These numbers ​​can be positive or negative.
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int x[10];
+    for(int i=0; i<10; i++){
+        cin>>x[i];
+        if(x[i]<=0){
+            x[i]=1;
+        }
+    }
+    for(int i=0; i<10; i++){
+        cout<<"X["<<i<<"] = "<<x[i]<<endl;
+    }
+
+    return 0;
+}
+
+// Problem 1173 - Read a number and make a program which puts this number in the first position of an array N[10]. In each subsequent position, put the double of the previous position. For example, if the input number is 1, the array numbers ​​must be 1,2,4,8, and so on.
+// The input contains an integer number V (V < 50).
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int n[10];
+    cin>>n[0];
+    for(int i=1; i<10; i++){
+        n[i]=n[i-1]*2;
+    }
+    for(int i=0; i<10; i++){
+        cout<<"N["<<i<<"] = "<<n[i]<<endl;
+    }
+
+    return 0;
+}
+
+// Problem 1174 - In this problem, your task is to read an array A[100]. At the end, print all array positions that store a number less or equal to 10 and the number stored in that position.
+// The input contains 100 numbers. Each number can be integer, floating-point number, positive or negative.
+
+#include <iostream>
+#include<iomanip>
+
+using namespace std;
+
+int main() {
+    float a[100];
+    for(int i=0; i<100; i++){
+        cin>>a[i];
+    }
+    for(int i=0; i<100; i++){
+        if(a[i]<=10){
+            cout<<fixed<<setprecision(1);
+            cout<<"A["<<i<<"] = "<<a[i]<<endl;
+        }
+    }
+
+    return 0;
+}
+
+// Problem 1175 - Write a program that reads an array N [20]. After, change the first element by the last, the second element by the last but one, etc.., Up to change the 10th to the 11th. print the modified array.
+// The input contains 20 integer numbers, positive or negative.
+
+#include <iostream>
+#include<algorithm>
+
+using namespace std;
+
+int main() {
+    int n[20];
+    for(int i=0; i<20; i++){
+        cin>>n[i];
+    }
+    for(int i=0; i<10; i++){
+        swap(n[i], n[19-i]);
+    }
+    for(int i=0; i<20; i++){
+        cout<<"N["<<i<<"] = "<<n[i]<<endl;
+    }
+
+    return 0;
+}
 
 
 
