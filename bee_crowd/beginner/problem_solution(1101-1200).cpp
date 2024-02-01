@@ -894,6 +894,118 @@ int main() {
     return 0;
 }
 
+// Problem 1176 - Write a program that reads a number and print the Fibonacci number corresponding to this read number. Remember that the first elements of the Fibonacci series are 0 and 1 and each next term is the sum of the two preceding it. All the Fibonacci numbers calculated in this program must fit in a unsigned 64 bits number.
+// The first line of the input contains a single integer T, indicating the number of test cases. Each test case contains a single integer N (0 ≤ N ≤ 60), corresponding to the N-th term of the Fibonacci series.
+
+#include<iostream>
+
+using namespace std;
+
+int main() {
+    unsigned long long n[61];
+    n[0]=0;
+    n[1]=1;
+    for(int i=2; i<61; i++){
+        n[i]=n[i-1]+n[i-2];
+    }
+    int test;
+    cin>>test;
+    for(int i=0; i<test; i++){
+        int x;
+        cin>>x;
+        cout<<"Fib("<<x<<") = "<<n[x]<<endl;
+    }
+
+    return 0;
+}
+
+// Problem 1177 - Write a program that reads a number T and fill a vector N[1000] with the numbers from 0 to T-1 repeated times, like as the example below.
+// The input contains an integer number T (2 ≤ T ≤ 50).
+
+#include<iostream>
+
+using namespace std;
+
+int main() {
+    int n, j=0;;
+    cin>>n;
+    for(int i=0; i<=1000; i++){
+        cout<<"N["<<i<<"] = "<<j<<endl;
+        j++;
+        if(j==n){
+            j=0;
+        }
+    }
+
+    return 0;
+}
+
+// Problem 1178 - Read a number X. Put this X at the first position of an array N [100]. In each subsequent position (1 up to 99) put half of the number inserted at the previous position, according to the example below. Print all the vector N.
+// The input contains a double precision number with four decimal places.
+
+#include<iostream>
+#include<iomanip>
+
+using namespace std;
+
+int main() {
+    double n;
+    cin>>setprecision(4)>>n;
+    for(int i=0; i<100; i++){
+        cout<<fixed<<setprecision(4);
+        cout<<"N["<<i<<"] = "<<n<<endl;
+        n=n/2;
+    }
+
+    return 0;
+}
+
+// Problem 1179 - In this problem you need to read 15 numbers and must put them into two different arrays: par if the number is even or impar if this number is odd. But  the size of each of the two arrrays is only 5 positions. So every time you fill one of two arrays, you must print the entire array to be able to use it again for the next numbers that are read. At the end, all remaining numbers of each one of these two arrays must be printed beggining with the odd array. Each array can be filled how many times are necessary.
+// The input contains 15 integer numbers.
+
+#include<iostream>
+
+using namespace std;
+
+int main() {
+    int par[5], impar[5];
+    int parIndex=0, imparIndex=0, n=15;
+    while(n--){
+        int num;
+        cin>>num;
+        if(num%2==0){
+            par[parIndex++]=num;
+            if(parIndex==5){
+                for(int i=0; i<5; i++){
+                    cout<<"par["<<i<<"] = "<<par[i]<<endl;
+                }
+                parIndex=0;
+            }
+        } else{
+            impar[imparIndex++]=num;
+            if(imparIndex==5){
+                for(int i=0; i<5; i++){
+                    cout<<"impar["<<i<<"] = "<<impar[i]<<endl;
+                }
+                imparIndex=0;
+            }
+        }
+    }
+
+    for(int i=0; i<imparIndex; i++){
+        cout<<"impar["<<i<<"] = "<<impar[i]<<endl;
+    }
+    for(int i=0; i<parIndex; i++){
+        cout<<"par["<<i<<"] = "<<par[i]<<endl;
+    }
+
+    return 0;
+}
+
+// Problem 1180 - Write a program that reads a number N. This N is the size of a array X[N]. Next, read each of the numbers of X, find the smallest element of this array and its position within the array, printing this information.
+// The first line of input contains one integer N (1 < N <1000), indicating the number of elements that should be read to an array X[N] of integer numbers. The second row contains each of the N values, separated by a space. Remember that no input will have repeated numbers.
+
+
 
 
 
