@@ -1005,7 +1005,103 @@ int main() {
 // Problem 1180 - Write a program that reads a number N. This N is the size of a array X[N]. Next, read each of the numbers of X, find the smallest element of this array and its position within the array, printing this information.
 // The first line of input contains one integer N (1 < N <1000), indicating the number of elements that should be read to an array X[N] of integer numbers. The second row contains each of the N values, separated by a space. Remember that no input will have repeated numbers.
 
+#include<iostream>
+#include<climits>
 
+using namespace std;
 
+int main() {
+    int size, smallest=INT_MAX, position;
+    cin>>size;
+    int n[size];
+    for(int i=0; i<size; i++){
+        cin>>n[i];
+        if(n[i]<smallest){
+            smallest=n[i];
+            position=i;
+        }
+    }
+
+    cout<<"Menor valor: "<<smallest<<endl;
+    cout<<"Posicao: "<<position<<endl;
+
+    return 0;
+}
+
+// Problem 1181 - Your job in this problem is to read a number that is a line of an array, an uppercase character, indicating the operation to be performed and all elements of a bidimentional array M[12][12]. Then, you have to calculate and print the sum or average of all elements within the green area according to the case. The following figure illustrates the case when is entered the number 2 to the array line, showing all elements that must be considered in the operation.
+// The first line of the input contains a simple integer L (0 ≤ L ≤ 11) indicating the line to be considered in the operation. The second line of the input contains a single uppercase character T ('S' or 'M'), indicating the operation Sum or Average (Média in portuguese) to be performed with the elements of the array. Follow the 144 floating-point numbers of the array, considering that the elements are inserted line by line, from line 0 to line 11, always from left to right.
+
+#include<iostream>
+#include<iomanip>
+
+using namespace std;
+
+int main() {
+    int line;
+    char operation;
+    double m[12][12], result=0.0;
+    cin>>line;
+    cin>>operation;
+
+    for(int i=0; i<12; i++){
+        for(int j=0; j<12; j++){
+            cin>>m[i][j];
+        }
+    }
+
+    if(operation=='S'){
+        for(int j=0; j<12; j++){
+            result+=m[line][j];
+        }
+    } else if(operation=='M'){
+        for (int j = 0; j < 12; j++) {
+            result += m[line][j];
+        }
+        result/=12.0;
+    }
+
+    cout<<fixed<<setprecision(1);
+    cout<<result<<endl;
+
+    return 0;
+}
+
+// Problem 1182 - Your job in this problem is to read a number that is a column of an array where an operation will be performed, an uppercase character, indicating the operation to be performed and all elements of a bidimentional array M[12][12]. Then, you have to calculate and print the sum or average of all elements within the green area according to the case. The following figure illustrates the case when is entered the number 5 to the array column, showing all elements that must be considered in the operation.
+// The first line of the input contains a simple integer C (0 ≤ C ≤ 11) indicating the column to be considered in the operation. The second line of the input contains a single uppercase character T ('S' or 'M'), indicating the operation Sum or Average (Média in portuguese) to be performed with the elements of the array. Follow 144 floating-point numbers of the array.
+
+#include<iostream>
+#include<iomanip>
+
+using namespace std;
+
+int main() {
+    int line;
+    char operation;
+    double m[12][12], result=0.0;
+    cin>>line;
+    cin>>operation;
+
+    for(int i=0; i<12; i++){
+        for(int j=0; j<12; j++){
+            cin>>m[i][j];
+        }
+    }
+
+    if(operation=='S'){
+        for(int j=0; j<12; j++){
+            result+=m[j][line];
+        }
+    } else if(operation=='M'){
+        for (int j = 0; j < 12; j++) {
+            result += m[j][line];
+        }
+        result/=12.0;
+    }
+
+    cout<<fixed<<setprecision(1);
+    cout<<result<<endl;
+
+    return 0;
+}
 
 
