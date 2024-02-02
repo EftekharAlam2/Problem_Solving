@@ -1104,4 +1104,179 @@ int main() {
     return 0;
 }
 
+// Problem 1183 - Read an uppercase character that indicates an operation that will be performed in an array M[12][12]. Then, calculate and print the sum or average considering only that numbers that are above the main diagonal of the array, like shown in the following figure (green area).
+// The first line of the input contains a single uppercase character O ('S' or 'M'), indicating the operation Sum or Average (Média in portuguese) to be performed with the elements of the array. Follow 144 floating-point numbers of the array.
+
+#include<iostream>
+#include<iomanip>
+
+using namespace std;
+
+int main(){
+    float m[12][12], result=0.0;
+    char operation;
+    cin>>operation;
+    for(int i=0; i<12; i++){
+        for(int j=0; j<12; j++){
+            cin>>m[i][j];
+        }
+    }
+
+    int line=1;
+    if(operation == 'S'){
+        for(int i=0; i<12; i++){
+            for(int j=line; j<12; j++){
+                result+=m[i][j];
+            }
+            line++;
+        }
+        cout<<fixed<<setprecision(1);
+        cout<<result<<endl;
+    } else if(operation == 'M'){
+        for(int i=0; i<12; i++){
+            for(int j=line; j<12; j++){
+                result+=m[i][j];
+            }
+            line++;
+        }
+        result/=66.0;
+        cout<<fixed<<setprecision(1);
+        cout<<result<<endl;
+    }
+
+    return 0;
+}
+
+// Problem 1184 - Read an uppercase character that indicates an operation that will be performed in an array M[12][12]. Then, calculate and print the sum or average considering only that numbers that are below of the main diagonal of the array, like shown in the following figure (green area).
+// The first line of the input contains a single uppercase character O ('S' or 'M'), indicating the operation Sum or Average (Média in portuguese) to be performed with the elements of the array. Follow 144 floating-point numbers of the array.
+
+#include<iostream>
+#include<iomanip>
+
+using namespace std;
+
+int main(){
+    float m[12][12], result=0.0;
+    char operation;
+    cin>>operation;
+    for(int i=0; i<12; i++){
+        for(int j=0; j<12; j++){
+            cin>>m[i][j];
+        }
+    }
+
+    if(operation == 'S'){
+        for(int i=1; i<12; i++){
+            for(int j=0; j<i; j++){
+                result+=m[i][j];
+            }
+        }
+        cout<<fixed<<setprecision(1);
+        cout<<result<<endl;
+    } else if(operation == 'M'){
+        for(int i=1; i<12; i++){
+            for(int j=0; j<i; j++){
+                result+=m[i][j];
+            }
+        }
+        result/=66.0;
+        cout<<fixed<<setprecision(1);
+        cout<<result<<endl;
+    }
+
+    return 0;
+}
+
+// Problem 1185 - Read an uppercase character that indicates an operation that will be performed in an array M[12][12]. Then, calculate and print the sum or average considering only that numbers that are above the secundary diagonal of the array, like shown in the following figure (green area).
+// The first line of the input contains a single uppercase character O ('S' or 'M'), indicating the operation Sum or Average (Média in portuguese) to be performed with the elements of the array. Follow 144 floating-point numbers of the array.
+
+#include<iostream>
+#include<iomanip>
+
+using namespace std;
+
+int main(){
+    float m[12][12], result=0.0;
+    char operation;
+    cin>>operation;
+    for(int i=0; i<12; i++){
+        for(int j=0; j<12; j++){
+            cin>>m[i][j];
+        }
+    }
+
+    int line=11;
+    if(operation == 'S'){
+        for(int i=0; i<11; i++){
+            for(int j=0; j<line; j++){
+                result+=m[i][j];
+            }
+            line--;
+        }
+        cout<<fixed<<setprecision(1);
+        cout<<result<<endl;
+    } else if(operation == 'M'){
+        for(int i=0; i<11; i++){
+            for(int j=0; j<line; j++){
+                result+=m[i][j];
+            }
+            line--;
+        }
+        result/=66.0;
+        cout<<fixed<<setprecision(1);
+        cout<<result<<endl;
+    }
+
+    return 0;
+}
+
+// Problem 1186 - Read an uppercase character that indicates an operation that will be performed in an array M[12][12]. Then, calculate and print the sum or average considering only that numbers that are below of the Secundary diagonal of the array, like shown in the following figure (green area).
+// The first line of the input contains a single uppercase character O ('S' or 'M'), indicating the operation Sum or Average (Média in portuguese) to be performed with the elements of the array. Follow 144 floating-point numbers of the array.
+
+#include<iostream>
+#include<iomanip>
+
+using namespace std;
+
+int main(){
+    float m[12][12], result=0.0;
+    char operation;
+    cin>>operation;
+    for(int i=0; i<12; i++){
+        for(int j=0; j<12; j++){
+            cin>>m[i][j];
+        }
+    }
+
+    int line=11;
+    if(operation == 'S'){
+        for(int i=1; i<12; i++){
+            int lower=i;
+            for(int j=line; lower>0; j++){
+                result+=m[i][j];
+                lower--;
+            }
+            line--;
+        }
+        cout<<fixed<<setprecision(1);
+        cout<<result<<endl;
+    } else if(operation == 'M'){
+        for(int i=1; i<12; i++){
+            int lower=i;
+            for(int j=line; lower>0; j++){
+                result+=m[i][j];
+                lower--;
+            }
+            line--;
+        }
+        result/=66.0;
+        cout<<fixed<<setprecision(1);
+        cout<<result<<endl;
+    }
+
+    return 0;
+}
+
+// Problem 1187 - Read an uppercase character that indicates an operation that will be performed in an array M[12][12]. Then, calculate and print the sum or average considering only that numbers that are included in the green area of this array, like shown in the following figure.
+// The first line of the input contains a single uppercase character O ('S' or 'M'), indicating the operation Sum or Average (Média in portuguese) to be performed with the elements of the array. Follow 144 double numbers of the array.
 
