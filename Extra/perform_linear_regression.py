@@ -1,4 +1,5 @@
 # The problem is to perform an linear regression on two differnet data set
+#Also using it create an modal
 
 # Task - 1
 
